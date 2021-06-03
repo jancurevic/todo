@@ -4,7 +4,7 @@ import "./TodoList.css";
 // import { Todo } from "../Todo/Todo";
 import { Table } from "antd";
 
-import { ActionButtons } from "../ActionButtons/ActionButtons";
+import { Link } from "react-router-dom";
 
 export default function TodoList() {
   const columns = [
@@ -36,17 +36,53 @@ export default function TodoList() {
       title: "Action",
       dataIndex: "",
       key: "x",
-      render: () => <ActionButtons />,
+      render: () => <Link to="/todo-about/">About</Link>,
     },
   ];
 
   const todos = [
-    { task: "task1", isDone: true, about: "lorem  ipsum....", hoursLeft: 15 },
-    { task: "task2", isDone: false, about: "lorem ipsum....", hoursLeft: 13 },
-    { task: "task3", isDone: false, about: "lorem ipsum....", hoursLeft: 17 },
-    { task: "task4", isDone: false, about: "lorem ipsum....", hoursLeft: 20 },
-    { task: "task5", isDone: false, about: "lorem ipsum....", hoursLeft: 1 },
-    { task: "task6", isDone: false, about: "lorem ipsum....", hoursLeft: 5 },
+    {
+      id: 1,
+      task: "task1",
+      isDone: true,
+      about: "lorem  ipsum....",
+      hoursLeft: 15,
+    },
+    {
+      id: 2,
+      task: "task2",
+      isDone: false,
+      about: "lorem ipsum....",
+      hoursLeft: 13,
+    },
+    {
+      id: 3,
+      task: "task3",
+      isDone: false,
+      about: "lorem ipsum....",
+      hoursLeft: 17,
+    },
+    {
+      id: 4,
+      task: "task4",
+      isDone: false,
+      about: "lorem ipsum....",
+      hoursLeft: 20,
+    },
+    {
+      id: 5,
+      task: "task5",
+      isDone: false,
+      about: "lorem ipsum....",
+      hoursLeft: 1,
+    },
+    {
+      id: 6,
+      task: "task6",
+      isDone: false,
+      about: "lorem ipsum....",
+      hoursLeft: 5,
+    },
   ];
 
   // function onChange(pagination, filters, sorter, extra) {
@@ -63,7 +99,13 @@ export default function TodoList() {
       className="todoTable"
       columns={columns}
       dataSource={mappedTodos}
-      // onChange={onChange}
+      onRow={(record, rowIndex) => {
+        return {
+          onClick: (event) => {
+            console.log(event.target);
+          },
+        };
+      }}
     />
   );
-};
+}

@@ -1,0 +1,12 @@
+1. Robimy bez CSS
+2. Podział na komponenty i sensowyny routing
+3. Axios i pobieranie danych z backendu
+    3.1 Pobieranie wszystkich danych
+    3.2 Wysłanie requestu o usunięciu Filmu
+    3.3 Wysłanie requestu z nowym filmem - połączone z 4.1
+    3.4 Wysłanie requestu o edycji filmu - połączone z 4.2
+4. Formularz
+    4.1 Tworzenie i dodawanie nowgo filmu (bez okładki)
+    4.2 Edycja Filmu
+5. Ostylowanie komponentów - uzycie SCSS
+6. Dodanie ratingu filmu (klikanie na gwiazdki)
