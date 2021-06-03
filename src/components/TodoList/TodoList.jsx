@@ -4,9 +4,11 @@ import "./TodoList.css";
 // import { Todo } from "../Todo/Todo";
 import { Table } from "antd";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export default function TodoList() {
+  const history = useHistory();
+
   const columns = [
     {
       title: "Task",
@@ -101,8 +103,8 @@ export default function TodoList() {
       dataSource={mappedTodos}
       onRow={(record, rowIndex) => {
         return {
-          onClick: (event) => {
-            console.log(event.target);
+          onClick: () => {
+            history.push(`/todo/${record.id}`);
           },
         };
       }}

@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import TodoList from "./components/TodoList/TodoList";
 import NewTodo from "./components/NewTodo/NewTodo";
+import Todo from "./components/Todo/Todo";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
@@ -25,8 +26,8 @@ function App() {
           <Route path="/new-todo">
             <NewTodo />
           </Route>
-          <Route path="/todo-about/:id">
-            <TodoList />
+          <Route path="/todo/:id">
+            <Todo/>
           </Route>
           <Route path="/">
             <TodoList />
