@@ -75,7 +75,7 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Todo List</Link>
+              <Link to="/todo-list">Todo List</Link>
             </li>
             <li>
               <Link to="/new-todo">Create new</Link>
@@ -92,7 +92,7 @@ function App() {
           <Route path="/todo/:id">
             <Todo todos={todos} setTodos={setTodos}/>
           </Route>
-          <Route path="/">
+          <Route path="/todo-list">
             <TodoList todos={todos} setTodos={setTodos}/>
           </Route>
         </Switch>

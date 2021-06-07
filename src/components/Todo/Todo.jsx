@@ -1,19 +1,60 @@
 import React from "react";
-import './Todo.css';
+import "./Todo.css";
 
-import {useParams} from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import { Button, Modal } from "antd";
 
-export default function Todo({todos, setTodos}){
+export default function Todo({ todos, setTodos }) {
   const params = useParams();
-  console.log({params});
-  const todo = todos.find(todo => `${todo.id}` === params.id);
+  const history = useHistory();
+  const [isModalVisible, setIsModalVisible] = React.useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+    history.push("/todo-list");
+  };
+
+  const deleteFilm = () => {
+    setTodos([
+      ...todos.filter((todo) => (`${todo.id}` === params.id ? false : true)),
+    ]);
+    showModal();
+  };
+
+  const todo = todos.find((todo) => `${todo.id}` === params.id);
 
   return (
     <>
-      <div>{todo.task}</div>
-      <div>{todo.about}</div>
-      <div>{todo.hoursLeft}</div>
-      <div>{todo.additionalInfo}</div>
+      {!!todo && (
+        <>
+          <div>{todo.task}</div>
+          <div>{todo.about}</div>
+          <div>{todo.hoursLeft}</div>
+          <div>{todo.additionalInfo}</div>
+
+          <Button
+            onClick={() => {
+              deleteFilm();
+            }}
+          >
+            Delete
+          </Button>
+        </>
+      )}
+      <Modal
+        visible={isModalVisible}
+        footer={[
+          <Button key="ok" onClick={handleOk}>
+            Ok
+          </Button>,
+        ]}
+      >
+        <p>Todo was deleted</p>
+      </Modal>
     </>
   );
-};
+}
