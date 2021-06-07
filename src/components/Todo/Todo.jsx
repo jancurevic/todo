@@ -3,12 +3,17 @@ import './Todo.css';
 
 import {useParams} from "react-router-dom";
 
-export default function Todo({task, isDone}){
+export default function Todo({todos, setTodos}){
   const params = useParams();
+  console.log({params});
+  const todo = todos.find(todo => `${todo.id}` === params.id);
+
   return (
     <>
-    <div className="todo">{task} - {isDone ? 'Done' : 'Not done'}</div>
-    <div>{task} with id {params.id}</div>
+      <div>{todo.task}</div>
+      <div>{todo.about}</div>
+      <div>{todo.hoursLeft}</div>
+      <div>{todo.additionalInfo}</div>
     </>
   );
 };

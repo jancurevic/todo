@@ -5,7 +5,7 @@ import "./TodoList.css";
 import { Table } from "antd";
 
 import AboutButton from "../AboutButton/AboutButton";
-import AboutTodo from "../AboutTodo/AboutTodo";
+// import AboutTodo from "../AboutTodo/AboutTodo";
 
 export default function TodoList({ todos, setTodos }) {
   const columns = [
@@ -40,7 +40,7 @@ export default function TodoList({ todos, setTodos }) {
       render: (record) => (
         <>
           <AboutButton todos={todos} setTodos={setTodos} record={record} />
-          {record.isAboutVisible && <AboutTodo todo={record}/>}
+          {/* {record.isAboutVisible && <AboutTodo todo={record}/>} */}
         </>
       ),
     },

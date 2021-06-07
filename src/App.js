@@ -9,7 +9,7 @@ function App() {
 
   const [todos, setTodos] = useState([
     {
-      // id: 1,
+      id: 1,
       task: "task1",
       // isDone: true,
       about: "lorem  ipsum....",
@@ -19,7 +19,7 @@ function App() {
       isAboutVisible: false
     },
     {
-      // id: 2,
+      id: 2,
       task: "task2",
       // isDone: false,
       about: "lorem ipsum....",
@@ -29,7 +29,7 @@ function App() {
       isAboutVisible: false
     },
     {
-      // id: 3,
+      id: 3,
       task: "task3",
       // isDone: false,
       about: "lorem ipsum....",
@@ -39,7 +39,7 @@ function App() {
       isAboutVisible: false
     },
     {
-      // id: 4,
+      id: 4,
       task: "task4",
       // isDone: false,
       about: "lorem ipsum....",
@@ -49,7 +49,7 @@ function App() {
       isAboutVisible: false
     },
     {
-      // id: 5,
+      id: 5,
       task: "task5",
       // isDone: false,
       about: "lorem ipsum....",
@@ -59,7 +59,7 @@ function App() {
       isAboutVisible: false
     },
     {
-      // id: 6,
+      id: 6,
       task: "task6",
       // isDone: false,
       about: "lorem ipsum....",
@@ -90,7 +90,7 @@ function App() {
             <TodoAdd todos={todos} setTodos={setTodos}/>
           </Route>
           <Route path="/todo/:id">
-            <Todo/>
+            <Todo todos={todos} setTodos={setTodos}/>
           </Route>
           <Route path="/">
             <TodoList todos={todos} setTodos={setTodos}/>

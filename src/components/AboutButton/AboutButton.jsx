@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Button } from "antd";
+import { Link } from "react-router-dom";
 
 export default function AboutButton({todos, setTodos, record}){
 
@@ -13,13 +14,12 @@ export default function AboutButton({todos, setTodos, record}){
     >
       {" "}
       <Button
-        onClick={() => {
-            console.log(record)
-          setTodos([...todos.map(todo => todo.task === record.task ? {...record, isAboutVisible: !record.isAboutVisible} : todo)]);
-        }}
+        // onClick={() => {
+        //     console.log(record)
+        //   setTodos([...todos.map(todo => todo.task === record.task ? {...record, isAboutVisible: !record.isAboutVisible} : todo)]);
+        // }}
       >
-        {" "}
-        Click{" "}
+        <Link to={`/todo/${record.id}`}>Details</Link>
       </Button>
     </div>
   );
