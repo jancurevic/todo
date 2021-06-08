@@ -18,7 +18,7 @@ export default function Todo({ todos, setTodos }) {
     history.push("/todo-list");
   };
 
-  const deleteFilm = () => {
+  const deleteTodo = () => {
     setTodos([
       ...todos.filter((todo) => (`${todo.id}` === params.id ? false : true)),
     ]);
@@ -38,7 +38,7 @@ export default function Todo({ todos, setTodos }) {
 
           <Button
             onClick={() => {
-              deleteFilm();
+              deleteTodo();
             }}
           >
             Delete

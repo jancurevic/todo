@@ -10,6 +10,7 @@ function App() {
   const [todos, setTodos] = useState([
     {
       id: 1,
+      key: 1,
       task: "task1",
       // isDone: true,
       about: "lorem  ipsum....",
@@ -20,6 +21,7 @@ function App() {
     },
     {
       id: 2,
+      key: 2,
       task: "task2",
       // isDone: false,
       about: "lorem ipsum....",
@@ -30,6 +32,7 @@ function App() {
     },
     {
       id: 3,
+      key: 3,
       task: "task3",
       // isDone: false,
       about: "lorem ipsum....",
@@ -40,6 +43,7 @@ function App() {
     },
     {
       id: 4,
+      key: 4,
       task: "task4",
       // isDone: false,
       about: "lorem ipsum....",
@@ -50,6 +54,7 @@ function App() {
     },
     {
       id: 5,
+      key: 5,
       task: "task5",
       // isDone: false,
       about: "lorem ipsum....",
@@ -60,6 +65,7 @@ function App() {
     },
     {
       id: 6,
+      key: 6,
       task: "task6",
       // isDone: false,
       about: "lorem ipsum....",

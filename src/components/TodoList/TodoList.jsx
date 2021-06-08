@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "antd/dist/antd.css";
 import "./TodoList.css";
 // import { Todo } from "../Todo/Todo";
-import { Table } from "antd";
+import { Table, Button } from "antd";
 
 import AboutButton from "../AboutButton/AboutButton";
 // import AboutTodo from "../AboutTodo/AboutTodo";
 
 export default function TodoList({ todos, setTodos }) {
+  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+
   const columns = [
     {
       title: "Task",
@@ -30,7 +32,6 @@ export default function TodoList({ todos, setTodos }) {
     {
       title: "Action",
       dataIndex: "",
-      key: "x",
       render: (record) => (
         <>
           <AboutButton todos={todos} setTodos={setTodos} record={record} />
@@ -39,11 +40,32 @@ export default function TodoList({ todos, setTodos }) {
     },
   ];
 
+  const onSelectChange = (selectedKeys) => {
+    setSelectedRowKeys([...selectedKeys]);
+  };
+
+  const deleteSelectedTodos = () => {
+    const filteredTodos = todos.filter(
+      (todo) => ![...selectedRowKeys].includes(todo.key)
+    );
+    setTodos([...filteredTodos]);
+    setSelectedRowKeys([]);
+  };
+
+  const rowSelection = {
+    ...selectedRowKeys,
+    onChange: onSelectChange,
+  };
+
   return (
-    <Table
-      className="todoTable"
-      columns={columns}
-      dataSource={todos}
-    />
+    <>
+      <Button onClick={deleteSelectedTodos}>Delete selected</Button>
+      {todos && <Table
+        className="todoTable"
+        columns={columns}
+        dataSource={todos}
+        rowSelection={rowSelection}
+      />}
+    </>
   );
 }

@@ -20,7 +20,7 @@ const TodoInputs = () => {
 
 const TodoAdd = (props) => {
   const handleSubmit = (newTodo) => {
-    props.setTodos([...props.todos, {...newTodo, isAboutVisible: false, id: props.todos.length+1 }]);
+    props.setTodos([...props.todos, {...newTodo, isAboutVisible: false, id: props.todos.length+1, key: props.todos.length+1 }]);
   };
   return (
     <div className="mydiv">
